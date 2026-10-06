@@ -22,7 +22,6 @@
     background-attachment: fixed;
   }
   
-  /* Layout principale a griglia per desktop (Contenuto + Sidebar) */
   .wrap { 
     width: 100%; 
     max-width: 1000px; 
@@ -39,7 +38,7 @@
 
   @media (max-width: 768px) {
     .layout-grid {
-      grid-template-columns: 1fr; /* Su cellulare la sidebar va sopra o sotto */
+      grid-template-columns: 1fr;
     }
   }
 
@@ -87,23 +86,18 @@
 <body>
 <div class="wrap">
 
-  <!-- Header comune in alto -->
   <header class="glass">
     <img class="logo" src="logo.png" alt="Logo Zeb89 Fanpage">
     <h1>Zeb89 Archive</h1>
     <p>L'enciclopedia e archivio storico definitivo su Zeb89.</p>
   </header>
 
-  <!-- Griglia con Sidebar a sinistra e Contenuto a destra -->
   <div class="layout-grid">
     
-    <!-- QUI FINISCE LA SIDEBAR CARICATA VIA JAVASCRIPT -->
     <aside id="sidebar-container">
-      <!-- Se JS è disattivato o in carica -->
       <div class="glass" style="font-size: 0.9rem; color: #8fb4dc;">Caricamento indice...</div>
     </aside>
 
-    <!-- CONTENUTO PRINCIPALE DELLA PAGINA (Questo cambia in ogni file HTML) -->
     <main>
       <section class="glass">
         <h2>Benvenuto nell'Archivio</h2>
@@ -114,8 +108,8 @@
       <section class="glass">
         <h2>Ultime voci aggiunte</h2>
         <ul>
+          <li><a href="memestorici.html" style="color: #6cc0ff; text-decoration: none;">Esplora i Meme Storici (Lezzo, Orazio Grinzosi, ecc.)</a></li>
           <li><a href="#" style="color: #6cc0ff; text-decoration: none;">La storica run di Dark Souls</a></li>
-          <li><a href="#" style="color: #6cc0ff; text-decoration: none;">Le compilation di rage più famose</a></li>
         </ul>
       </section>
     </main>
@@ -126,7 +120,6 @@
 
 </div>
 
-<!-- SCRIPT MAGICO PER CARICARE LA SIDEBAR AUTOMATICAMENTE -->
 <script>
   fetch('sidebar.html')
     .then(response => {
