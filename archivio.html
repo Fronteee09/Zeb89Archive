@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Meme Storici · Zeb89 Archive</title>
+<title>Archivio · Zeb89 Archive</title>
 <link rel="icon" href="logo.png">
 <style>
   * { box-sizing: border-box; }
@@ -57,38 +57,46 @@
   h2 { margin: 0 0 10px; font-size: 1.35rem; color: #fff; text-shadow: 0 0 8px rgba(90,180,255,.6); }
   p { margin: 0 0 10px; }
   
+  /* Barra di ricerca in tempo reale */
+  .search-box {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    background: rgba(5,20,45,.6);
+    border: 1px solid rgba(120,185,255,.4);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-box:focus {
+    border-color: rgba(140,200,255,.9);
+    box-shadow: 0 0 8px rgba(80,170,255,.4);
+  }
+  .search-box::placeholder { color: #8fb4dc; }
+
   /* Box con scrollbar interna */
   .scroll-popup {
     max-height: 280px;
     overflow-y: auto;
     padding-right: 6px;
-    margin-top: 10px;
   }
   
-  .scroll-popup::-webkit-scrollbar {
-    width: 6px;
-  }
-  .scroll-popup::-webkit-scrollbar-track {
-    background: rgba(5,20,45,.3);
-    border-radius: 4px;
-  }
-  .scroll-popup::-webkit-scrollbar-thumb {
-    background: rgba(120,185,255,.4);
-    border-radius: 4px;
-  }
-  .scroll-popup::-webkit-scrollbar-thumb:hover {
-    background: rgba(120,185,255,.7);
-  }
+  .scroll-popup::-webkit-scrollbar { width: 6px; }
+  .scroll-popup::-webkit-scrollbar-track { background: rgba(5,20,45,.3); border-radius: 4px; }
+  .scroll-popup::-webkit-scrollbar-thumb { background: rgba(120,185,255,.4); border-radius: 4px; }
+  .scroll-popup::-webkit-scrollbar-thumb:hover { background: rgba(120,185,255,.7); }
 
-  .meme-list { list-style: none; padding: 0; margin: 0; }
-  .meme-list li { margin-bottom: 10px; }
-  .meme-list a {
+  .archive-list { list-style: none; padding: 0; margin: 0; }
+  .archive-list li { margin-bottom: 10px; }
+  .archive-list a {
     display: block; padding: 12px 16px; background: rgba(5,20,45,.55);
     border: 1px solid rgba(120,185,255,.35); border-radius: 10px;
     color: #fff; text-decoration: none; font-weight: 600;
     transition: background 0.2s, border-color 0.2s;
   }
-  .meme-list a:hover {
+  .archive-list a:hover {
     background: rgba(80,170,255,.25);
     border-color: rgba(140,200,255,.8);
   }
@@ -101,19 +109,20 @@
 
   <header class="glass">
     <img class="logo" src="logo.png" alt="Logo Zeb89 Fanpage">
-    <h1>Meme Storici</h1>
-    <p>L'archivio dei tormentoni e dei personaggi storici legati a Zeb89.</p>
+    <h1>Archivio Generale</h1>
+    <p>Tutti i contenuti, meme, video e curiosità raccolti in un unico posto.</p>
   </header>
 
   <div class="layout-grid">
     
-    <!-- SIDEBAR FISSA -->
+    <!-- SIDEBAR RINOMINATA E AGGIORNATA -->
     <aside>
       <div class="glass" style="padding: 16px;">
-        <h2 style="font-size: 1.1rem; margin-bottom: 12px;">Indice Archivio</h2>
+        <h2 style="font-size: 1.1rem; margin-bottom: 12px;">Archivio</h2>
         <ul style="list-style: none; padding: 0; margin: 0;">
           <li style="margin-bottom: 8px;"><a href="index.html" style="color: #6cc0ff; text-decoration: none;">🏠 Home Archivio</a></li>
-          <li style="margin-bottom: 8px;"><a href="memestorici.html" style="color: #6cc0ff; text-decoration: none;">📜 Meme Storici</a></li>
+          <li style="margin-bottom: 8px;"><a href="archivio.html" style="color: #6cc0ff; text-decoration: none;">📂 Archivio (Tutto)</a></li>
+          <li style="margin-bottom: 8px;"><a href="memestorici.html" style="color: #bcd9f7; text-decoration: none;">📜 Meme Storici</a></li>
           <li style="margin-bottom: 8px;"><a href="#" style="color: #bcd9f7; text-decoration: none;">🎮 Videogiochi</a></li>
           <li style="margin-bottom: 8px;"><a href="#" style="color: #bcd9f7; text-decoration: none;">💬 Frasi Celebri</a></li>
         </ul>
@@ -122,13 +131,17 @@
 
     <main>
       <section class="glass">
-        <h2>Elenco Voci</h2>
-        <p>Clicca su una voce per aprire la scheda di approfondimento dedicata:</p>
+        <h2>Cerca nell'Archivio</h2>
+        <p>Digita qui sotto per filtrare istantaneamente tra tutti gli elementi:</p>
+        
+        <!-- Casella di ricerca in tempo reale -->
+        <input type="text" id="searchInput" class="search-box" placeholder="Cerca voce..." onkeyup="filterArchive()">
         
         <div class="scroll-popup">
-          <ul class="meme-list">
-            <li><a href="oraziogrinzosi.html">Orazio Grinzosi</a></li>
-            <li><a href="pietrosmusi.html">Pietro Smusi</a></li>
+          <ul id="archiveList" class="archive-list">
+            <li><a href="oraziogrinzosi.html">Orazio Grinzosi (Meme)</a></li>
+            <li><a href="pietrosmusi.html">Pietro Smusi (Meme)</a></li>
+            <!-- Qui potrai aggiungere qualsiasi altra voce mista -->
           </ul>
         </div>
       </section>
@@ -139,6 +152,26 @@
   <footer>Zeb89 Archive · Progetto non ufficiale gestito dalla community di Reddit</footer>
 
 </div>
+
+<!-- Script JavaScript per la ricerca in tempo reale lettera per lettera -->
+<script>
+  function filterArchive() {
+    let input = document.getElementById('searchInput');
+    let filter = input.value.toLowerCase();
+    let ul = document.getElementById('archiveList');
+    let li = ul.getElementsByTagName('li');
+
+    for (let i = 0; i < li.length; i++) {
+      let a = li[i].getElementsByTagName('a')[0];
+      let txtValue = a.textContent || a.innerText;
+      if (txtValue.toLowerCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+</script>
 
 </body>
 </html>
