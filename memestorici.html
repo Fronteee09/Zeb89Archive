@@ -84,8 +84,17 @@
 
   <div class="layout-grid">
     
-    <aside id="sidebar-container">
-      <div class="glass" style="font-size: 0.9rem; color: #8fb4dc;">Caricamento indice...</div>
+    <!-- SIDEBAR FISSA -->
+    <aside>
+      <div class="glass" style="padding: 16px;">
+        <h2 style="font-size: 1.1rem; margin-bottom: 12px;">Indice Archivio</h2>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 8px;"><a href="index.html" style="color: #6cc0ff; text-decoration: none;">🏠 Home Archivio</a></li>
+          <li style="margin-bottom: 8px;"><a href="memestorici.html" style="color: #6cc0ff; text-decoration: none;">📜 Meme Storici</a></li>
+          <li style="margin-bottom: 8px;"><a href="#" style="color: #bcd9f7; text-decoration: none;">🎮 Videogiochi</a></li>
+          <li style="margin-bottom: 8px;"><a href="#" style="color: #bcd9f7; text-decoration: none;">💬 Frasi Celebri</a></li>
+        </ul>
+      </div>
     </aside>
 
     <main>
@@ -94,9 +103,8 @@
         <p>Clicca su una voce per aprire la scheda di approfondimento dedicata:</p>
         
         <ul class="meme-list">
-          <li><a href="lezzo.html">Lezzo</a></li>
           <li><a href="oraziogrinzosi.html">Orazio Grinzosi</a></li>
-          <li><a href="pietrosmusi.html">Pietro Smusi</a></li>
+          <!-- Qui potrai aggiungere facilmente gli altri in futuro -->
         </ul>
       </section>
     </main>
@@ -106,13 +114,6 @@
   <footer>Zeb89 Archive · Progetto non ufficiale gestito dalla community di Reddit</footer>
 
 </div>
-
-<script>
-  fetch('sidebar.html')
-    .then(response => response.text())
-    .then(data => { document.getElementById('sidebar-container').innerHTML = data; })
-    .catch(error => { console.error(error); });
-</script>
 
 </body>
 </html>
