@@ -115,18 +115,9 @@
 
   <div class="layout-grid">
     
-    <!-- SIDEBAR RINOMINATA E AGGIORNATA -->
-    <aside>
-      <div class="glass" style="padding: 16px;">
-        <h2 style="font-size: 1.1rem; margin-bottom: 12px;">Archivio</h2>
-        <ul style="list-style: none; padding: 0; margin: 0;">
-          <li style="margin-bottom: 8px;"><a href="index.html" style="color: #6cc0ff; text-decoration: none;">🏠 Home Archivio</a></li>
-          <li style="margin-bottom: 8px;"><a href="archivio.html" style="color: #6cc0ff; text-decoration: none;">📂 Archivio (Tutto)</a></li>
-          <li style="margin-bottom: 8px;"><a href="memestorici.html" style="color: #bcd9f7; text-decoration: none;">📜 Meme Storici</a></li>
-          <li style="margin-bottom: 8px;"><a href="#" style="color: #bcd9f7; text-decoration: none;">🎮 Videogiochi</a></li>
-          <li style="margin-bottom: 8px;"><a href="#" style="color: #bcd9f7; text-decoration: none;">💬 Frasi Celebri</a></li>
-        </ul>
-      </div>
+    <!-- SIDEBAR DINAMICA -->
+    <aside id="sidebar-container">
+      <div class="glass" style="font-size: 0.9rem; color: #8fb4dc;">Caricamento indice...</div>
     </aside>
 
     <main>
@@ -135,13 +126,13 @@
         <p>Digita qui sotto per filtrare istantaneamente tra tutti gli elementi:</p>
         
         <!-- Casella di ricerca in tempo reale -->
-        <input type="text" id="searchInput" class="search-box" placeholder="Cerca voce..." onkeyup="filterArchive()">
+        <input type="text" id="searchInput" class="search-box" placeholder="Cerca voce (es. Orazio, ThebutcherZ...)" onkeyup="filterArchive()">
         
         <div class="scroll-popup">
           <ul id="archiveList" class="archive-list">
-            <li><a href="oraziogrinzosi.html">Orazio Grinzosi (Meme)</a></li>
-            <li><a href="pietrosmusi.html">Pietro Smusi (Meme)</a></li>
-            <!-- Qui potrai aggiungere qualsiasi altra voce mista -->
+            <li><a href="oraziogrinzosi.html">Orazio Grinzosi (Meme Storico)</a></li>
+            <li><a href="pietrosmusi.html">Pietro Smusi (Meme Storico)</a></li>
+            <li><a href="thebutcherz.html">ThebutcherZ (Clan Serious Sam / Curiosità)</a></li>
           </ul>
         </div>
       </section>
@@ -171,6 +162,20 @@
       }
     }
   }
+
+  // Caricamento dinamico della sidebar
+  fetch('sidebar.html')
+    .then(response => {
+      if (!response.ok) throw new Error("Errore nel caricamento della sidebar");
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById('sidebar-container').innerHTML = data;
+    })
+    .catch(error => {
+      console.error(error);
+      document.getElementById('sidebar-container').innerHTML = '<div class="glass">Errore menu</div>';
+    });
 </script>
 
 </body>
