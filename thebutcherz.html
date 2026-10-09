@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThebutcherZ · Zeb89 Archive</title>
+<link rel="icon" href="logo.png">
+<style>
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    color: #dbeafe;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 15% 8%, rgba(80,170,255,.35), transparent 38%),
+      radial-gradient(circle at 90% 35%, rgba(40,120,220,.35), transparent 42%),
+      linear-gradient(160deg, #0a1f3d 0%, #07152b 50%, #030a16 100%);
+    background-attachment: fixed;
+  }
+  
+  .wrap { width: 100%; max-width: 1000px; margin: 0 auto; padding: 18px; }
+  
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  @media (max-width: 768px) { .layout-grid { grid-template-columns: 1fr; } }
+
+  .glass {
+    background: linear-gradient(180deg, rgba(120,190,255,.22), rgba(20,50,95,.35));
+    border: 1px solid rgba(140,200,255,.45);
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0,0,0,.6), inset 0 1px 0 rgba(200,230,255,.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    margin-bottom: 18px;
+  }
+
+  header.glass { text-align: center; padding: 30px 20px; }
+  .logo {
+    width: 90px; height: 90px; object-fit: cover; border-radius: 50%;
+    border: 2px solid rgba(140,200,255,.7); box-shadow: 0 0 18px rgba(80,170,255,.7);
+    margin-bottom: 10px;
+  }
+  h1 {
+    margin: 0 0 6px; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.1; color: #fff;
+    text-shadow: 0 0 14px rgba(90,180,255,.9), 0 2px 4px rgba(0,0,0,.8);
+  }
+  header p { margin: 0; color: #bcd9f7; font-size: 1rem; }
+  h2 { margin: 0 0 10px; font-size: 1.35rem; color: #fff; text-shadow: 0 0 8px rgba(90,180,255,.6); }
+  p { margin: 0 0 12px; }
+
+  footer { text-align: center; color: #8fb4dc; font-size: .9rem; padding: 10px 0 40px; grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="glass">
+    <img class="logo" src="logo.png" alt="Logo Zeb89 Fanpage">
+    <h1>ThebutcherZ</h1>
+    <p>Scheda clan e curiosità · Archivio Storico</p>
+  </header>
+
+  <div class="layout-grid">
+    
+    <!-- SIDEBAR DINAMICA -->
+    <aside id="sidebar-container">
+      <div class="glass" style="font-size: 0.9rem; color: #8fb4dc;">Caricamento indice...</div>
+    </aside>
+
+    <main>
+      <section class="glass">
+        <h2>Storia del Clan</h2>
+        <p><strong>ThebutcherZ</strong> fu un clan di giocatori di <em>Serious Sam</em> provenienti da tutto il mondo, fondato e formato da Zeb89.</p>
+        <p>Il clan ebbe vita breve e durò molto poco, ma la sua esperienza e la sua fine furono storicamente la causa diretta della creazione del famosissimo canale <strong>Zeb89AceGamer</strong>.</p>
+      </section>
+    </main>
+
+  </div>
+
+  <footer>Zeb89 Archive · Progetto non ufficiale gestito dalla community di Reddit</footer>
+
+</div>
+
+<!-- Script per il caricamento automatico della sidebar condivisa -->
+<script>
+  fetch('sidebar.html')
+    .then(response => {
+      if (!response.ok) throw new Error("Errore nel caricamento della sidebar");
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById('sidebar-container').innerHTML = data;
+    })
+    .catch(error => {
+      console.error(error);
+      document.getElementById('sidebar-container').innerHTML = '<div class="glass">Errore menu</div>';
+    });
+</script>
+
+</body>
+</html>
