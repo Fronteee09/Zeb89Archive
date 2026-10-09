@@ -72,7 +72,28 @@
     color: #fff;
     text-shadow: 0 0 14px rgba(90,180,255,.9), 0 2px 4px rgba(0,0,0,.8);
   }
-  header p { margin: 0; color: #bcd9f7; font-size: 1rem; }
+  header p { margin: 0 0 16px; color: #bcd9f7; font-size: 1rem; }
+
+  /* Stile per il bottone del sito ufficiale */
+  .btn-official {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(80, 170, 255, 0.2);
+    border: 1px solid rgba(140, 200, 255, 0.6);
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
+  }
+  .btn-official:hover {
+    background: rgba(80, 170, 255, 0.4);
+    border-color: rgba(200, 230, 255, 0.9);
+    box-shadow: 0 0 12px rgba(80, 170, 255, 0.6);
+    transform: translateY(-1px);
+  }
 
   h2 { margin: 0 0 10px; font-size: 1.35rem; color: #fff; text-shadow: 0 0 8px rgba(90,180,255,.6); }
   p { margin: 0 0 10px; }
@@ -90,6 +111,8 @@
     <img class="logo" src="logo.png" alt="Logo Zeb89 Fanpage">
     <h1>Zeb89 Archive</h1>
     <p>L'enciclopedia e archivio storico definitivo su Zeb89 creato interamente dalla Zeb89Fanpage.</p>
+    <!-- Pulsante Sito Ufficiale -->
+    <a href="https://fronteee09.github.io/Zeb89Fanpage/" target="_blank" class="btn-official">🌐 Visita il Sito Ufficiale</a>
   </header>
 
   <div class="layout-grid">
@@ -108,8 +131,8 @@
       <section class="glass">
         <h2>Ultime voci aggiunte</h2>
         <ul>
-          <li><a href="memestorici.html" style="color: #6cc0ff; text-decoration: none;">Esplora i Meme Storici (Orazio Grinzosi, Pietro Smusi, ecc.)</a></li>
-          <li><a href="archivio.html" style="color: #6cc0ff; text-decoration: none;">Nuovo Archivio Generale con barra di ricerca in tempo reale</a></li>
+          <li><a href="archivio.html" style="color: #6cc0ff; text-decoration: none;">Archivio Generale con ricerca in tempo reale</a></li>
+          <li><a href="thebutcherz.html" style="color: #6cc0ff; text-decoration: none;">ThebutcherZ (Clan Serious Sam)</a></li>
         </ul>
       </section>
     </main>
