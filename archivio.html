@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Archivio · Zeb89 Archive</title>
+<title>Bibbiena · Zeb89 Archive</title>
 <link rel="icon" href="logo.png">
 <style>
   * { box-sizing: border-box; }
@@ -54,4 +54,67 @@
     text-shadow: 0 0 14px rgba(90,180,255,.9), 0 2px 4px rgba(0,0,0,.8);
   }
   header p { margin: 0; color: #bcd9f7; font-size: 1rem; }
-  h2 { margin
+  h2 { margin: 0 0 10px; font-size: 1.35rem; color: #fff; text-shadow: 0 0 8px rgba(90,180,255,.6); }
+  p { margin: 0 0 12px; }
+
+  footer { text-align: center; color: #8fb4dc; font-size: .9rem; padding: 10px 0 40px; grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="glass">
+    <img class="logo" src="logo.png" alt="Logo Zeb89 Fanpage">
+    <h1>Bibbiena</h1>
+    <p>Luogo Storico & Lore · Archivio Storico</p>
+  </header>
+
+  <div class="layout-grid">
+    
+    <!-- SIDEBAR DINAMICA -->
+    <aside id="sidebar-container">
+      <div class="glass" style="font-size: 0.9rem; color: #8fb4dc;">Caricamento indice...</div>
+    </aside>
+
+    <main>
+      <section class="glass">
+        <h2>Il Capitolo Bibbiena</h2>
+        <p><strong>Bibbiena</strong> è un comune in provincia di Arezzo che occupa un posto d'onore nella storia e nella mitologia del canale di Zeb89.</p>
+        <p>È stato il teatro principale di gran parte delle attività storiche dello streamer e creator, nonché sede del suo iconico negozio di assistenza e vendita PC, <em>AceMedia</em>.</p>
+      </section>
+
+      <section class="glass">
+        <h2>Rilevanza nell'Enciclopedia di Zeb89</h2>
+        <p>Nella cultura della community, Bibbiena è associata a diversi elementi chiave:</p>
+        <ul style="padding-left: 20px; color: #bcd9f7;">
+          <li style="margin-bottom: 8px;"><strong>Sede di AceMedia:</strong> Il punto fisico dove prendevano vita assemblaggi hardware, riparazioni e incontri dal vivo con gli appassionati.</li>
+          <li style="margin-bottom: 8px;"><strong>Sfondo delle Live e dei Video:</strong> Molti dei video storici e dei vlog dell'epoca d'oro sono stati registrati proprio in questa località toscana.</li>
+          <li style="margin-bottom: 8px;"><strong>Punto di Riferimento per i Fan:</strong> Un luogo diventato quasi leggendario nell'immaginario collettivo degli iscritti al canale.</li>
+        </ul>
+      </section>
+    </main>
+
+  </div>
+
+  <footer>Zeb89 Archive · Progetto non ufficiale gestito dalla community di Reddit</footer>
+
+</div>
+
+<!-- Script per il caricamento automatico della sidebar condivisa -->
+<script>
+  fetch('sidebar.html')
+    .then(response => {
+      if (!response.ok) throw new Error("Errore nel caricamento della sidebar");
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById('sidebar-container').innerHTML = data;
+    })
+    .catch(error => {
+      console.error(error);
+      document.getElementById('sidebar-container').innerHTML = '<div class="glass">Errore menu</div>';
+    });
+</script>
+
+</body>
+</html>
