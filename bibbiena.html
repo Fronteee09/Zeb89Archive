@@ -85,4 +85,36 @@
 
       <section class="glass">
         <h2>Rilevanza nell'Enciclopedia di Zeb89</h2>
-        <p>Nella cultura della community, Bibbiena
+        <p>Nella cultura della community, Bibbiena è associata a diversi elementi chiave:</p>
+        <ul style="padding-left: 20px; color: #bcd9f7;">
+          <li style="margin-bottom: 8px;"><strong>Sede di AceMedia:</strong> Il punto fisico dove prendevano vita assemblaggi hardware, riparazioni e incontri dal vivo con gli appassionati.</li>
+          <li style="margin-bottom: 8px;"><strong>Sfondo delle Live e dei Video:</strong> Molti dei video storici e dei vlog dell'epoca d'oro sono stati registrati proprio in questa località toscana.</li>
+          <li style="margin-bottom: 8px;"><strong>Punto di Riferimento per i Fan:</strong> Un luogo diventato quasi leggendario nell'immaginario collettivo degli iscritti al canale.</li>
+        </ul>
+      </section>
+    </main>
+
+  </div>
+
+  <footer>Zeb89 Archive · Progetto non ufficiale gestito dalla community di Reddit</footer>
+
+</div>
+
+<!-- Script per il caricamento automatico della sidebar condivisa -->
+<script>
+  fetch('sidebar.html')
+    .then(response => {
+      if (!response.ok) throw new Error("Errore nel caricamento della sidebar");
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById('sidebar-container').innerHTML = data;
+    })
+    .catch(error => {
+      console.error(error);
+      document.getElementById('sidebar-container').innerHTML = '<div class="glass">Errore menu</div>';
+    });
+</script>
+
+</body>
+</html>
