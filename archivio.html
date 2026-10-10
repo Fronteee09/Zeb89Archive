@@ -76,7 +76,7 @@
   }
   .search-box::placeholder { color: #8fb4dc; }
 
-  /* Box con scrollbar interna fissa per evitare che la pagina si allunghi */
+  /* Box con scrollbar interna fissa */
   .scroll-popup {
     max-height: 280px;
     overflow-y: auto;
@@ -126,11 +126,13 @@
         <p>Digita qui sotto per filtrare istantaneamente tra tutti gli elementi:</p>
         
         <!-- Casella di ricerca in tempo reale -->
-        <input type="text" id="searchInput" class="search-box" placeholder="Cerca voce (es. Orazio, Pietro, ThebutcherZ, Ultimate Arena...)" onkeyup="filterArchive()">
+        <input type="text" id="searchInput" class="search-box" placeholder="Cerca voce (es. Orazio, Maligno, AceMedia, Ultimate Arena...)" onkeyup="filterArchive()">
         
         <!-- Box con scrollbar interna -->
         <div class="scroll-popup">
           <ul id="archiveList" class="archive-list">
+            <li><a href="acemedia.html">AceMedia (Network & Piattaforma)</a></li>
+            <li><a href="maligno.html">Maligno (Collaboratore / Personaggio Storico)</a></li>
             <li><a href="oraziogrinzosi.html">Orazio Grinzosi (Meme Storico)</a></li>
             <li><a href="pietrosmusi.html">Pietro Smusi (Meme Storico)</a></li>
             <li><a href="thebutcherz.html">ThebutcherZ (Clan Serious Sam)</a></li>
